@@ -1,11 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
-using System.ComponentModel;
-using System.Data;
 using System.Drawing;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using System.Windows.Forms;
 using System.IO;
 using System.Windows.Forms.DataVisualization.Charting;
@@ -17,8 +12,6 @@ namespace Assign6 {
         
         List<string> x;                 // X-axis labels (years).
         List<double> y;                 // Y-axis labels (gas prices).
-
-        Series series;
 
         public Form2() {
             InitializeComponent();
@@ -32,18 +25,31 @@ namespace Assign6 {
             // Set chart properties.
             chartGas.Series[0].ChartType = SeriesChartType.Line;
             chartGas.Series[1].ChartType = SeriesChartType.Line;
+            chartGas.Series[0].BorderWidth = 3;
+            chartGas.Series[1].BorderWidth = 3;
             chartGas.ChartAreas[0].AxisX.IsMarginVisible = false;
-            chartGas.ChartAreas[1].AxisX.IsMarginVisible = false;
+            chartGas.ChartAreas[0].AxisY.LabelStyle.Format = "{0.00}";
+
+            // Set style of axis titles and labels.
+            chartGas.ChartAreas[0].AxisX.Title = "Year";
+            chartGas.ChartAreas[0].AxisX.LabelStyle.Font = new Font("Times New Roman", 12, FontStyle.Bold);
+            chartGas.ChartAreas[0].AxisX.TitleFont = new Font("Times New Roman", 12, FontStyle.Bold);
+            chartGas.ChartAreas[0].AxisY.Title = "Price (USD)";
+            chartGas.ChartAreas[0].AxisY.LabelStyle.Font = new Font("Times New Roman", 12, FontStyle.Bold);
+            chartGas.ChartAreas[0].AxisY.TitleFont = new Font("Times New Roman", 12, FontStyle.Bold);
 
             // Construct Font for the graph's title.
-            FontFamily fontFamily = new FontFamily("Comic Sans MS");
+            FontFamily fontFamily = new FontFamily("Times New Roman");
             Font titleFont = new Font(fontFamily, 18, FontStyle.Bold);
-            Title title = new Title("Gas Prices", Docking.Top, titleFont, Color.Black);
+            Title title = new Title("Gas Prices ($/gal)", Docking.Top, titleFont, Color.Black);
             chartGas.Titles.Add(title);
 
+            // Construct font for graph axis titles.
+
+
             // Label the series (line) in the legend.
-            Series series = new Series();
-            chartGas.Series[0].Name = "Gas Price";
+            chartGas.Series[0].Name = "Current Gas Price";
+            chartGas.Series[1].Name = "Real Gas Prices";
 
             // Open the data file for gas prices.
             using (var dataFile = new StreamReader("../../../Data/gasPricesCurrent.txt")) {
@@ -58,6 +64,7 @@ namespace Assign6 {
                 }
             }
 
+            // Add data points to the current (non-inflation-adjusted) series points.
             chartGas.Series[0].Points.DataBindXY(x, y);
 
             // Reset data points for new data.
@@ -77,13 +84,13 @@ namespace Assign6 {
                 }
             }
 
+            // Add data points to the real (inflation-adjusted) series points.
             chartGas.Series[1].Points.DataBindXY(x, y);
+        }
 
-
-            for (int i  = 0;  i < x.Count(); i++) {
-                series.Points.Add(i, y[i]);
-            }
-
+        private void buttonBack_Click(object sender, EventArgs e) {
+            // Close this window.
+            this.Close();
         }
     }
 }

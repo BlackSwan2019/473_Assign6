@@ -28,7 +28,7 @@
             System.Windows.Forms.DataVisualization.Charting.Series series1 = new System.Windows.Forms.DataVisualization.Charting.Series();
             System.Windows.Forms.DataVisualization.Charting.Series series2 = new System.Windows.Forms.DataVisualization.Charting.Series();
             this.chartGas = new System.Windows.Forms.DataVisualization.Charting.Chart();
-            this.button1 = new System.Windows.Forms.Button();
+            this.buttonBack = new System.Windows.Forms.Button();
             ((System.ComponentModel.ISupportInitialize)(this.chartGas)).BeginInit();
             this.SuspendLayout();
             // 
@@ -52,21 +52,22 @@
             this.chartGas.TabIndex = 0;
             this.chartGas.Text = "chart1";
             // 
-            // button1
+            // buttonBack
             // 
-            this.button1.Location = new System.Drawing.Point(326, 444);
-            this.button1.Name = "button1";
-            this.button1.Size = new System.Drawing.Size(130, 39);
-            this.button1.TabIndex = 1;
-            this.button1.Text = "button1";
-            this.button1.UseVisualStyleBackColor = true;
+            this.buttonBack.Location = new System.Drawing.Point(343, 444);
+            this.buttonBack.Name = "buttonBack";
+            this.buttonBack.Size = new System.Drawing.Size(130, 39);
+            this.buttonBack.TabIndex = 1;
+            this.buttonBack.Text = "< Back";
+            this.buttonBack.UseVisualStyleBackColor = true;
+            this.buttonBack.Click += new System.EventHandler(this.buttonBack_Click);
             // 
             // Form2
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(800, 495);
-            this.Controls.Add(this.button1);
+            this.Controls.Add(this.buttonBack);
             this.Controls.Add(this.chartGas);
             this.Name = "Form2";
             this.Text = "Form2";
@@ -79,6 +80,6 @@
         #endregion
 
         private System.Windows.Forms.DataVisualization.Charting.Chart chartGas;
-        private System.Windows.Forms.Button button1;
+        private System.Windows.Forms.Button buttonBack;
     }
 }
