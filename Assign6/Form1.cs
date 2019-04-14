@@ -3,18 +3,23 @@ using System.Windows.Forms;
 
 namespace Assign6 {
     public partial class Form1 : Form {
-        Form2 form2;
-
         public Form1() {
             InitializeComponent();
         }
 
-        private void Form1_Load(object sender, EventArgs e) {
-            form2 = new Form2();
+        private void buttonLineChart_Click(object sender, EventArgs e) {
+            // Create and then load new form for the line chart depicting gas prices.
+            LoadForm(new Form2());
         }
 
-        private void buttonLineChart_Click(object sender, EventArgs e) {
-            LoadForm(new Form2());
+        private void buttonBarChart_Click(object sender, EventArgs e) {
+            // Create and then load new form for the pie chart depicting world energy use (in BTUs) by source.
+            LoadForm(new Form3());
+        }
+
+        private void buttonAreaChart_Click(object sender, EventArgs e) {
+            // Create and then load new form for the area chart depicting 
+            LoadForm(new FormBarChart());
         }
 
         private void LoadForm(Form form) {

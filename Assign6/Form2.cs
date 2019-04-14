@@ -1,4 +1,13 @@
-﻿using System;
+﻿
+/*
+ * Program:     Assignment 6
+ * Author:      Patrick Klesyk, Ben Lane, Matt Rycraft
+ * Z-ID:        Z1782152        Z1806979  Z1818053 
+ * Description: A multi-form app that displays various graphs/charts.
+ * Due Date:    4//2019
+ */
+
+using System;
 using System.Collections.Generic;
 using System.Drawing;
 using System.Windows.Forms;
@@ -44,12 +53,9 @@ namespace Assign6 {
             Title title = new Title("Gas Prices ($/gal)", Docking.Top, titleFont, Color.Black);
             chartGas.Titles.Add(title);
 
-            // Construct font for graph axis titles.
-
-
             // Label the series (line) in the legend.
-            chartGas.Series[0].Name = "Current Gas Price";
-            chartGas.Series[1].Name = "Real Gas Prices";
+            chartGas.Series[0].Name = "Gas Price (Not inflation-adjusted)";
+            chartGas.Series[1].Name = "Gas Price (Inflation-adjusted)";
 
             // Open the data file for gas prices.
             using (var dataFile = new StreamReader("../../../Data/gasPricesCurrent.txt")) {

@@ -1,0 +1,5 @@
+petroleum:180
+natural gas:130
+coal:160
+renewable:70
+nuclear:24
