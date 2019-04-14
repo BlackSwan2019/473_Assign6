@@ -1,5 +1,5 @@
 ﻿namespace Assign6 {
-    partial class Form2 {
+    partial class FormLineChart {
         /// <summary>
         /// Required designer variable.
         /// </summary>
@@ -71,7 +71,7 @@
             this.Controls.Add(this.chartGas);
             this.Name = "Form2";
             this.Text = "Form2";
-            this.Load += new System.EventHandler(this.Form2_Load);
+            this.Load += new System.EventHandler(this.FormLineGraph_Load);
             ((System.ComponentModel.ISupportInitialize)(this.chartGas)).EndInit();
             this.ResumeLayout(false);
 

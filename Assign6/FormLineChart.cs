@@ -4,7 +4,7 @@
  * Author:      Patrick Klesyk, Ben Lane, Matt Rycraft
  * Z-ID:        Z1782152        Z1806979  Z1818053 
  * Description: A multi-form app that displays various graphs/charts.
- * Due Date:    4//2019
+ * Due Date:    4/25/2019
  */
 
 using System;
@@ -15,18 +15,28 @@ using System.IO;
 using System.Windows.Forms.DataVisualization.Charting;
 
 namespace Assign6 {
-    public partial class Form2 : Form {
+    public partial class FormLineChart : Form {
         string dataLine;            // Single line of data from file.
         string[] dataLineTokens;    // Holds year and gas price.
         
         List<string> x;                 // X-axis labels (years).
         List<double> y;                 // Y-axis labels (gas prices).
 
-        public Form2() {
+        public FormLineChart() {
             InitializeComponent();
         }
 
-        private void Form2_Load(object sender, EventArgs e) {
+        /*  
+        *  Method:     FormLineChart_Load
+        *  
+        *  Purpose:    Handles loading of line graph window.
+        * 
+        *  Arguments:  object       UI component sending event.
+        *              EventArgs    The event.
+        *              
+        *  Return:     void
+        */
+        private void FormLineGraph_Load(object sender, EventArgs e) {
             // Instantiate list of data points.
             x = new List<string>();
             y = new List<double>();
@@ -94,6 +104,16 @@ namespace Assign6 {
             chartGas.Series[1].Points.DataBindXY(x, y);
         }
 
+        /*  
+        *  Method:     buttonBack_Click
+        *  
+        *  Purpose:    Handles when user clicks the back button to go back to Portal.
+        * 
+        *  Arguments:  object       UI component sending event.
+        *              EventArgs    The event.
+        *              
+        *  Return:     void
+        */
         private void buttonBack_Click(object sender, EventArgs e) {
             // Close this window.
             this.Close();

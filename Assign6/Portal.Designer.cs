@@ -1,5 +1,5 @@
 ﻿namespace Assign6 {
-    partial class Form1 {
+    partial class Portal {
         /// <summary>
         /// Required designer variable.
         /// </summary>
@@ -49,7 +49,7 @@
             this.buttonPieChart.TabIndex = 1;
             this.buttonPieChart.Text = "Pie Chart";
             this.buttonPieChart.UseVisualStyleBackColor = true;
-            this.buttonPieChart.Click += new System.EventHandler(this.buttonBarChart_Click);
+            this.buttonPieChart.Click += new System.EventHandler(this.buttonPieChart_Click);
             // 
             // buttonBarChart
             // 
@@ -58,9 +58,9 @@
             this.buttonBarChart.Name = "buttonBarChart";
             this.buttonBarChart.Size = new System.Drawing.Size(226, 48);
             this.buttonBarChart.TabIndex = 2;
-            this.buttonBarChart.Text = "Bar Chart";
+            this.buttonBarChart.Text = "Bar Graph";
             this.buttonBarChart.UseVisualStyleBackColor = true;
-            this.buttonBarChart.Click += new System.EventHandler(this.buttonAreaChart_Click);
+            this.buttonBarChart.Click += new System.EventHandler(this.buttonBarChart_Click);
             // 
             // labelPortal
             // 
@@ -72,7 +72,7 @@
             this.labelPortal.TabIndex = 3;
             this.labelPortal.Text = "Statistics Portal";
             // 
-            // Form1
+            // Portal
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
@@ -81,7 +81,7 @@
             this.Controls.Add(this.buttonBarChart);
             this.Controls.Add(this.buttonPieChart);
             this.Controls.Add(this.buttonLineChart);
-            this.Name = "Form1";
+            this.Name = "Portal";
             this.Text = "Form1";
             this.ResumeLayout(false);
             this.PerformLayout();

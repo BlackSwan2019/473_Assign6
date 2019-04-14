@@ -1,30 +1,29 @@
 ﻿using System;
-using System.Collections.Generic;
 using System.IO;
 using System.Windows.Forms;
 using System.Windows.Forms.DataVisualization.Charting;
 using System.Drawing;
 
-
 namespace Assign6 {
-    public partial class Form3 : Form {
+    public partial class FormPieChart : Form {
         string dataLine;            // Single line of data from file.
         string[] dataLineTokens;    // Holds year and gas price.
 
-        public Form3() {
+        public FormPieChart() {
             InitializeComponent();
         }
 
         /*  
-        *  Method:     drawGame
+        *  Method:     FormPieChart_Load
         *  
-        *  Purpose:    Draws game field. 
+        *  Purpose:    Handles loading of pie chart window.
         * 
-        *  Arguments:  none
+        *  Arguments:  object       UI component sending event.
+        *              EventArgs    The event.
         *              
         *  Return:     void
         */
-        private void Form3_Load(object sender, EventArgs e) {
+        private void FormPieChart_Load(object sender, EventArgs e) {
             chartEnergy.Series[0].ChartType = SeriesChartType.Pie;
 
             // Set chart properties.
@@ -41,7 +40,6 @@ namespace Assign6 {
             using (var dataFile = new StreamReader("../../../Data/worldEnergyUse.txt")) {
                 // While file has data in it, consume it.
                 while ((dataLine = dataFile.ReadLine()) != null) {
-                    Console.WriteLine(dataLine);
                     // Split data line into year token and gas price token.
                     dataLineTokens = dataLine.Split(':');
 
@@ -51,6 +49,16 @@ namespace Assign6 {
             }
         }
 
+        /*  
+        *  Method:     buttonBack_Click
+        *  
+        *  Purpose:    Handles when user clicks the back button to go back to Portal.
+        * 
+        *  Arguments:  object       UI component sending event.
+        *              EventArgs    The event.
+        *              
+        *  Return:     void
+        */
         private void buttonBack_Click(object sender, EventArgs e) {
             // Close this window.
             this.Close();

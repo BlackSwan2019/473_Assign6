@@ -18,12 +18,17 @@ namespace Assign6 {
 
         }
 
+        /*  
+        *  Method:     buttonBack_Click
+        *  
+        *  Purpose:    Handles when user clicks the back button to go back to Portal.
+        * 
+        *  Arguments:  object       UI component sending event.
+        *              EventArgs    The event.
+        *              
+        *  Return:     void
+        */
         private void buttonBack_Click(object sender, EventArgs e) {
-            // Close this window.
-            this.Close();
-        }
-
-        private void buttonBack_Click_1(object sender, EventArgs e) {
             // Close this window.
             this.Close();
         }

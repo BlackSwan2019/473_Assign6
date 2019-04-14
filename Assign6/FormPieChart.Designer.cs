@@ -1,5 +1,5 @@
 ﻿namespace Assign6 {
-    partial class Form3 {
+    partial class FormPieChart {
         /// <summary>
         /// Required designer variable.
         /// </summary>
@@ -68,7 +68,7 @@
             this.Controls.Add(this.chartEnergy);
             this.Name = "Form3";
             this.Text = "Form3";
-            this.Load += new System.EventHandler(this.Form3_Load);
+            this.Load += new System.EventHandler(this.FormPieChart_Load);
             ((System.ComponentModel.ISupportInitialize)(this.chartEnergy)).EndInit();
             this.ResumeLayout(false);
 
