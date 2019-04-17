@@ -40,6 +40,12 @@ namespace Assign6 {
             chartGas.ChartAreas[0].AxisX.IsMarginVisible = false;
             chartGas.ChartAreas[0].AxisY.LabelStyle.Format = "{0.00}";
 
+            // Construct Font for the graph's title.
+            FontFamily fontFamily = new FontFamily("Times New Roman");
+            Font titleFont = new Font(fontFamily, 18, FontStyle.Bold);
+            Title title = new Title("Gas Prices ($/gal)", Docking.Top, titleFont, Color.Black);
+            chartGas.Titles.Add(title);
+
             // Set style of axis titles and labels.
             chartGas.ChartAreas[0].AxisX.Title = "Year";
             chartGas.ChartAreas[0].AxisX.LabelStyle.Font = new Font("Times New Roman", 12, FontStyle.Bold);
@@ -48,12 +54,6 @@ namespace Assign6 {
             chartGas.ChartAreas[0].AxisY.LabelStyle.Font = new Font("Times New Roman", 12, FontStyle.Bold);
             chartGas.ChartAreas[0].AxisY.TitleFont = new Font("Times New Roman", 12, FontStyle.Bold);
 
-            // Construct Font for the graph's title.
-            FontFamily fontFamily = new FontFamily("Times New Roman");
-            Font titleFont = new Font(fontFamily, 18, FontStyle.Bold);
-            Title title = new Title("Gas Prices ($/gal)", Docking.Top, titleFont, Color.Black);
-            chartGas.Titles.Add(title);
-
             // Label the series (line) in the legend.
             chartGas.Series[0].Name = "Gas Price (Not inflation-adjusted)";
             chartGas.Series[1].Name = "Gas Price (Inflation-adjusted)";
@@ -61,7 +61,7 @@ namespace Assign6 {
             // Open the data file for gas prices.
             using (var dataFile = new StreamReader("../../../Data/gasPricesCurrent.txt")) {
                 // While file has data in it, consume it.
-                while ((dataLine  = dataFile.ReadLine())!= null) {
+                while ((dataLine = dataFile.ReadLine())!= null) {
                     // Split data line into year token and gas price token.
                     dataLineTokens = dataLine.Split(':');
 

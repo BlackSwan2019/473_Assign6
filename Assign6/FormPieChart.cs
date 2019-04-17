@@ -7,7 +7,7 @@ using System.Drawing;
 namespace Assign6 {
     public partial class FormPieChart : Form {
         string dataLine;            // Single line of data from file.
-        string[] dataLineTokens;    // Holds year and gas price.
+        string[] dataLineTokens;    // Hold energy source and amount of quadrillion BTUs.
 
         public FormPieChart() {
             InitializeComponent();

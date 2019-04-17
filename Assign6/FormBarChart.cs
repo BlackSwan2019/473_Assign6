@@ -15,8 +15,8 @@ namespace Assign6 {
         string dataLine;            // Single line of data from file.
         string[] dataLineTokens;    // Holds year and gas price.
 
-        List<string> x;             // X-axis labels (years).
-        List<double> y;             // Y-axis labels (gas prices).
+        List<string> x;             // X-axis labels.
+        List<double> y;             // Y-axis labels.
 
         public FormBarChart() {
             InitializeComponent();
@@ -37,18 +37,19 @@ namespace Assign6 {
             x = new List<string>();
             y = new List<double>();
 
+            // Construct Font for the graph's title.
+            FontFamily fontFamily = new FontFamily("Times New Roman");
+            Font titleFont = new Font(fontFamily, 18, FontStyle.Bold);
+            Title title = new Title("World Religion Populations", Docking.Top, titleFont, Color.Black);
+            chartReligion.Titles.Add(title);
+
+            // Set style of axis titles and labels.
             chartReligion.ChartAreas[0].AxisX.Title = "Religion";
             chartReligion.ChartAreas[0].AxisX.LabelStyle.Font = new Font("Times New Roman", 10, FontStyle.Bold);
             chartReligion.ChartAreas[0].AxisX.TitleFont = new Font("Times New Roman", 12, FontStyle.Bold);
             chartReligion.ChartAreas[0].AxisY.Title = "People (in millions)";
             chartReligion.ChartAreas[0].AxisY.LabelStyle.Font = new Font("Times New Roman", 12, FontStyle.Bold);
             chartReligion.ChartAreas[0].AxisY.TitleFont = new Font("Times New Roman", 12, FontStyle.Bold);
-
-            // Construct Font for the graph's title.
-            FontFamily fontFamily = new FontFamily("Times New Roman");
-            Font titleFont = new Font(fontFamily, 18, FontStyle.Bold);
-            Title title = new Title("World Religion Populations", Docking.Top, titleFont, Color.Black);
-            chartReligion.Titles.Add(title);
 
             // Label the series (line) in the legend.
             chartReligion.Series[0].Name = "Religions";

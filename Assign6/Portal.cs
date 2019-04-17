@@ -62,6 +62,20 @@ namespace Assign6 {
         }
 
         /*  
+        *  Method:     buttonPyramidChart_Click
+        *  
+        *  Purpose:    Handles when user clicks Pyramid Graph button.
+        * 
+        *  Arguments:  Form       Form to load.
+        *              
+        *  Return:     void
+        */
+        private void buttonPyramidChart_Click(object sender, EventArgs e) {
+            // Create and then load new form for the area chart depicting 
+            LoadForm(new FormPyramidChart());
+        }
+
+        /*  
         *  Method:     LoadForm
         *  
         *  Purpose:    Handles loading of graph windows.
@@ -95,5 +109,6 @@ namespace Assign6 {
             // Show Portal window again.
             this.Show();
         }
+
     }
 }
