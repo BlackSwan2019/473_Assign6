@@ -3,19 +3,86 @@ using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
 using System.Drawing;
+using System.IO;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using System.Windows.Forms.DataVisualization.Charting;
 
 namespace Assign6 {
     public partial class FormBarChart : Form {
+        string dataLine;            // Single line of data from file.
+        string[] dataLineTokens;    // Holds year and gas price.
+
+        List<string> x;             // X-axis labels (years).
+        List<double> y;             // Y-axis labels (gas prices).
+
         public FormBarChart() {
             InitializeComponent();
         }
 
+        /*  
+        *  Method:     FormBarChart_Load
+        *  
+        *  Purpose:    Handles loading of bar graph window.
+        * 
+        *  Arguments:  object       UI component sending event.
+        *              EventArgs    The event.
+        *              
+        *  Return:     void
+        */
         private void FormBarChart_Load(object sender, EventArgs e) {
+            // Instantiate list of data points.
+            x = new List<string>();
+            y = new List<double>();
 
+            chartReligion.ChartAreas[0].AxisX.Title = "Religion";
+            chartReligion.ChartAreas[0].AxisX.LabelStyle.Font = new Font("Times New Roman", 10, FontStyle.Bold);
+            chartReligion.ChartAreas[0].AxisX.TitleFont = new Font("Times New Roman", 12, FontStyle.Bold);
+            chartReligion.ChartAreas[0].AxisY.Title = "People (in millions)";
+            chartReligion.ChartAreas[0].AxisY.LabelStyle.Font = new Font("Times New Roman", 12, FontStyle.Bold);
+            chartReligion.ChartAreas[0].AxisY.TitleFont = new Font("Times New Roman", 12, FontStyle.Bold);
+
+            // Construct Font for the graph's title.
+            FontFamily fontFamily = new FontFamily("Times New Roman");
+            Font titleFont = new Font(fontFamily, 18, FontStyle.Bold);
+            Title title = new Title("World Religion Populations", Docking.Top, titleFont, Color.Black);
+            chartReligion.Titles.Add(title);
+
+            // Label the series (line) in the legend.
+            chartReligion.Series[0].Name = "Religions";
+
+            // Make graph a little wider to accomodate longer religion names.
+            chartReligion.Legends.Clear();
+
+            // Open the data file for gas prices.
+            using (var dataFile = new StreamReader("../../../Data/religions.txt")) {
+                // While file has data in it, consume it.
+                while ((dataLine = dataFile.ReadLine()) != null) {
+                    // Split data line into year token and gas price token.
+                    dataLineTokens = dataLine.Split(':');
+
+                    // Add data to respective axis lists.
+                    x.Add(dataLineTokens[0]);
+                    y.Add(Convert.ToDouble(dataLineTokens[1]));
+                }
+            }
+
+            // Add data points to the current (non-inflation-adjusted) series points.
+            chartReligion.Series[0].Points.DataBindXY(x, y);
+
+            // Reset data points for new data.
+            x.Clear();
+            y.Clear();
+
+            Color[] colors = new Color[] { Color.Green, Color.LightGreen, Color.YellowGreen, Color.Yellow, Color.Maroon, Color.Red };
+            foreach (Series series in chartReligion.Series) {
+                foreach (DataPoint point in series.Points) {
+                    //point.LabelBackColor = colors[series.Points.IndexOf(point)];
+                    point.Color = colors[series.Points.IndexOf(point)];
+                }
+            }
         }
 
         /*  

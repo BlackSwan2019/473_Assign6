@@ -59,14 +59,14 @@
             this.buttonBack.UseVisualStyleBackColor = true;
             this.buttonBack.Click += new System.EventHandler(this.buttonBack_Click);
             // 
-            // Form3
+            // FormPieChart
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(800, 495);
             this.Controls.Add(this.buttonBack);
             this.Controls.Add(this.chartEnergy);
-            this.Name = "Form3";
+            this.Name = "FormPieChart";
             this.Text = "Form3";
             this.Load += new System.EventHandler(this.FormPieChart_Load);
             ((System.ComponentModel.ISupportInitialize)(this.chartEnergy)).EndInit();
