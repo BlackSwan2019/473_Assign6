@@ -47,6 +47,7 @@ namespace Assign6 {
                 while ((dataLineBTU = dataFileBTU.ReadLine()) != null) {
                     dataLineTokens = dataLineBTU.Split(':');
 
+                    // Accumulate total BTUs to get the denominator for the percentage.
                     totalBTU += Convert.ToInt32(dataLineTokens[1]);
                 }
             }
@@ -58,9 +59,7 @@ namespace Assign6 {
                     // Split data line into year token and gas price token.
                     dataLineTokens = dataLineName.Split(':');
 
-                    Console.WriteLine(Convert.ToUInt32(dataLineTokens[1]));
-                    Console.WriteLine(totalBTU);
-
+                    // Convert proportions to percentage for pie slice labels.
                     percentage = Convert.ToDouble(dataLineTokens[1]) / totalBTU;
                     percentage = percentage * 100;
 
