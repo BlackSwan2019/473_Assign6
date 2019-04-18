@@ -1,6 +1,10 @@
 Christianity:2,400
 Islam:1,800
 Secular:1,200
+Mormon:1,180
 Hinduism:1,150
 Buddhism:521
+Sikh:322
+Apple:188
 Judaism:14
+Jedi:2

@@ -6,8 +6,13 @@ using System.Drawing;
 
 namespace Assign6 {
     public partial class FormPieChart : Form {
-        string dataLine;            // Single line of data from file.
+        string dataLineBTU, dataLineName;            // Single line of data from file.
         string[] dataLineTokens;    // Hold energy source and amount of quadrillion BTUs.
+
+        int totalBTU = 0;
+        double percentage = 0;
+
+        string percentageLabel;
 
         public FormPieChart() {
             InitializeComponent();
@@ -29,6 +34,7 @@ namespace Assign6 {
             // Set chart properties.
             chartEnergy.Series[0].Font = new Font("Comic Sans MS", 12);
             chartEnergy.Series[0].IsValueShownAsLabel = true;
+            chartEnergy.Series[0].LabelFormat = "{0:#0.00}%";
 
             // Construct Font for the graph's title.
             FontFamily fontFamily = new FontFamily("Times New Roman");
@@ -36,15 +42,30 @@ namespace Assign6 {
             Title title = new Title("2016 World Energy Consumption by Source (quadrillion BTU)", Docking.Top, titleFont, Color.Black);
             chartEnergy.Titles.Add(title);
 
+            using (var dataFileBTU = new StreamReader("../../../Data/worldEnergyUse.txt")) {
+                // Get the total value of quadrillion BTUs.
+                while ((dataLineBTU = dataFileBTU.ReadLine()) != null) {
+                    dataLineTokens = dataLineBTU.Split(':');
+
+                    totalBTU += Convert.ToInt32(dataLineTokens[1]);
+                }
+            }
+
             // Open the data file for world energy use.
             using (var dataFile = new StreamReader("../../../Data/worldEnergyUse.txt")) {
                 // While file has data in it, consume it.
-                while ((dataLine = dataFile.ReadLine()) != null) {
+                while ((dataLineName = dataFile.ReadLine()) != null) {
                     // Split data line into year token and gas price token.
-                    dataLineTokens = dataLine.Split(':');
+                    dataLineTokens = dataLineName.Split(':');
+
+                    Console.WriteLine(Convert.ToUInt32(dataLineTokens[1]));
+                    Console.WriteLine(totalBTU);
+
+                    percentage = Convert.ToDouble(dataLineTokens[1]) / totalBTU;
+                    percentage = percentage * 100;
 
                     // Add points to chart.
-                    chartEnergy.Series[0].Points.AddXY(dataLineTokens[0], dataLineTokens[1]);
+                    chartEnergy.Series[0].Points.AddXY(dataLineTokens[0], percentage);
                 }
             }
         }

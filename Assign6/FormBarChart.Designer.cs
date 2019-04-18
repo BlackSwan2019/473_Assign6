@@ -43,7 +43,7 @@
             series1.Legend = "Legend1";
             series1.Name = "Series1";
             this.chartReligion.Series.Add(series1);
-            this.chartReligion.Size = new System.Drawing.Size(775, 425);
+            this.chartReligion.Size = new System.Drawing.Size(981, 425);
             this.chartReligion.TabIndex = 0;
             this.chartReligion.Text = "chart1";
             // 
@@ -61,7 +61,7 @@
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(800, 495);
+            this.ClientSize = new System.Drawing.Size(1006, 495);
             this.Controls.Add(this.buttonBack);
             this.Controls.Add(this.chartReligion);
             this.Name = "FormBarChart";

@@ -50,6 +50,7 @@ namespace Assign6 {
             chartReligion.ChartAreas[0].AxisY.Title = "People (in millions)";
             chartReligion.ChartAreas[0].AxisY.LabelStyle.Font = new Font("Times New Roman", 12, FontStyle.Bold);
             chartReligion.ChartAreas[0].AxisY.TitleFont = new Font("Times New Roman", 12, FontStyle.Bold);
+            chartReligion.ChartAreas[0].AxisX.Interval = 1;
 
             // Label the series (line) in the legend.
             chartReligion.Series[0].Name = "Religions";
@@ -77,7 +78,7 @@ namespace Assign6 {
             x.Clear();
             y.Clear();
 
-            Color[] colors = new Color[] { Color.Green, Color.LightGreen, Color.YellowGreen, Color.Yellow, Color.Maroon, Color.Red };
+            Color[] colors = new Color[] { Color.Green, Color.LightGreen, Color.YellowGreen, Color.Yellow, Color.Maroon, Color.Red, Color.Bisque, Color.BlueViolet, Color.DarkBlue, Color.DarkGray };
             foreach (Series series in chartReligion.Series) {
                 foreach (DataPoint point in series.Points) {
                     //point.LabelBackColor = colors[series.Points.IndexOf(point)];

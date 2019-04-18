@@ -110,5 +110,19 @@ namespace Assign6 {
             this.Show();
         }
 
+        /*  
+        *  Method:     buttonExit_Click
+        *  
+        *  Purpose:    Handles when user clicks to exit the program.
+        * 
+        *  Arguments:  object       UI component sending event.
+        *              EventArgs    The event.
+        *              
+        *  Return:     void
+        */
+        private void buttonExit_Click(object sender, EventArgs e) {
+            // Close the window.
+            this.Close();
+        }
     }
 }

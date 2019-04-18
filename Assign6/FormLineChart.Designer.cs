@@ -27,6 +27,7 @@
             System.Windows.Forms.DataVisualization.Charting.Legend legend1 = new System.Windows.Forms.DataVisualization.Charting.Legend();
             System.Windows.Forms.DataVisualization.Charting.Series series1 = new System.Windows.Forms.DataVisualization.Charting.Series();
             System.Windows.Forms.DataVisualization.Charting.Series series2 = new System.Windows.Forms.DataVisualization.Charting.Series();
+            System.Windows.Forms.DataVisualization.Charting.Series series3 = new System.Windows.Forms.DataVisualization.Charting.Series();
             this.chartGas = new System.Windows.Forms.DataVisualization.Charting.Chart();
             this.buttonBack = new System.Windows.Forms.Button();
             ((System.ComponentModel.ISupportInitialize)(this.chartGas)).BeginInit();
@@ -46,8 +47,12 @@
             series2.ChartArea = "ChartArea1";
             series2.Legend = "Legend1";
             series2.Name = "Series2";
+            series3.ChartArea = "ChartArea1";
+            series3.Legend = "Legend1";
+            series3.Name = "Series3";
             this.chartGas.Series.Add(series1);
             this.chartGas.Series.Add(series2);
+            this.chartGas.Series.Add(series3);
             this.chartGas.Size = new System.Drawing.Size(776, 426);
             this.chartGas.TabIndex = 0;
             this.chartGas.Text = "chart1";
@@ -62,14 +67,14 @@
             this.buttonBack.UseVisualStyleBackColor = true;
             this.buttonBack.Click += new System.EventHandler(this.buttonBack_Click);
             // 
-            // Form2
+            // FormLineChart
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(800, 495);
             this.Controls.Add(this.buttonBack);
             this.Controls.Add(this.chartGas);
-            this.Name = "Form2";
+            this.Name = "FormLineChart";
             this.Text = "Form2";
             this.Load += new System.EventHandler(this.FormLineGraph_Load);
             ((System.ComponentModel.ISupportInitialize)(this.chartGas)).EndInit();

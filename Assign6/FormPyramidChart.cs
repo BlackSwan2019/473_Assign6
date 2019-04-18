@@ -42,7 +42,7 @@ namespace Assign6 {
             // Construct Font for the graph's title.
             FontFamily fontFamily = new FontFamily("Times New Roman");
             Font titleFont = new Font(fontFamily, 18, FontStyle.Bold);
-            Title title = new Title("Largest Pyramid Schemes by Amount Swindled.", Docking.Top, titleFont, Color.Black);
+            Title title = new Title("Largest Pyramid Schemes.", Docking.Top, titleFont, Color.Black);
             chartScheme.Titles.Add(title);
 
             // Set style of axis titles and labels.
