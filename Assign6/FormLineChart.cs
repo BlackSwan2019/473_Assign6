@@ -69,7 +69,7 @@ namespace Assign6 {
             // Label the series (line) in the legend.
             chartGas.Series[0].Name = "Gas Price Not inflation-adjusted (LHS)";
             chartGas.Series[1].Name = "Gas Price Inflation-adjusted (LHS)";
-            chartGas.Series[2].Name = "Oil price per barrel (RHS)";
+            chartGas.Series[2].Name = "Oil price per barrel Not inflation-adjusted (RHS)";
 
             // Open the data file for gas prices.
             using (var dataFile = new StreamReader("../../../Data/gasPricesCurrent.txt")) {

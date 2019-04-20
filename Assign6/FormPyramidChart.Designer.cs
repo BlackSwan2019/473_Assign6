@@ -46,6 +46,7 @@
             this.chartScheme.Size = new System.Drawing.Size(776, 426);
             this.chartScheme.TabIndex = 0;
             this.chartScheme.Text = "chart1";
+            this.chartScheme.Paint += new System.Windows.Forms.PaintEventHandler(this.chartScheme_Paint);
             // 
             // buttonBack
             // 
