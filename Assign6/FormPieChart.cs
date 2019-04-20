@@ -5,14 +5,19 @@ using System.Windows.Forms.DataVisualization.Charting;
 using System.Drawing;
 
 namespace Assign6 {
+    /*  
+    *  Class:       FormPieChart
+    *  
+    *  Purpose:     Pie chart displaying where civilization got its energy from in 2016.
+    */
     public partial class FormPieChart : Form {
         string dataLineBTU, dataLineName;            // Single line of data from file.
-        string[] dataLineTokens;    // Hold energy source and amount of quadrillion BTUs.
+        string[] dataLineTokens;                     // Hold energy source and amount of quadrillion BTUs.
 
-        int totalBTU = 0;
-        double percentage = 0;
+        int totalBTU = 0;             // Total British Thermal  Units
+        double percentage = 0;        // Percentage a single energy source is out of total BTUs.
 
-        string percentageLabel;
+        string percentageLabel;       // Chart label for displaying percentage.
 
         public FormPieChart() {
             InitializeComponent();
@@ -32,14 +37,17 @@ namespace Assign6 {
             chartEnergy.Series[0].ChartType = SeriesChartType.Pie;
 
             // Set chart properties.
-            chartEnergy.Series[0].Font = new Font("Comic Sans MS", 12);
+            chartEnergy.Series[0].Font = new Font("Comic Sans MS", 10);
             chartEnergy.Series[0].IsValueShownAsLabel = true;
             chartEnergy.Series[0].LabelFormat = "{0:#0.00}%";
+            chartEnergy.Series[0]["PieLabelStyle"] = "Outside";
+            chartEnergy.Series[0].BorderColor = Color.Black;
+            chartEnergy.Series[0].Palette = ChartColorPalette.EarthTones;
 
             // Construct Font for the graph's title.
             FontFamily fontFamily = new FontFamily("Times New Roman");
             Font titleFont = new Font(fontFamily, 18, FontStyle.Bold);
-            Title title = new Title("2016 World Energy Consumption by Source (quadrillion BTU)", Docking.Top, titleFont, Color.Black);
+            Title title = new Title("2016 World Energy Consumption by Source", Docking.Top, titleFont, Color.Black);
             chartEnergy.Titles.Add(title);
 
             using (var dataFileBTU = new StreamReader("../../../Data/worldEnergyUse.txt")) {

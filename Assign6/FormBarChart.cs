@@ -6,9 +6,14 @@ using System.Windows.Forms;
 using System.Windows.Forms.DataVisualization.Charting;
 
 namespace Assign6 {
+    /*  
+    *  Class:       FormBarChart
+    *  
+    *  Purpose:     Bar chart displaying populations of various religions.
+    */
     public partial class FormBarChart : Form {
         string dataLine;            // Single line of data from file.
-        string[] dataLineTokens;    // Holds year and gas price.
+        string[] dataLineTokens;    // Holds religion and population for that religion.
 
         List<string> x;             // X-axis labels.
         List<double> y;             // Y-axis labels.

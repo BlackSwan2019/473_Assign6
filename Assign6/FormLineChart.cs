@@ -6,6 +6,11 @@ using System.IO;
 using System.Windows.Forms.DataVisualization.Charting;
 
 namespace Assign6 {
+    /*  
+    *  Class:       FormLineChart
+    *  
+    *  Purpose:     Line chart displaying gas prices over time along with oil prices.
+    */
     public partial class FormLineChart : Form {
         string dataLine;            // Single line of data from file.
         string[] dataLineTokens;    // Holds year and gas price.

@@ -1,5 +1,8 @@
 petroleum:180
 natural gas:130
 coal:160
-renewable:70
+biofuel and waste:55
+hydro:20
+wind:10
+solar:5
 nuclear:24
