@@ -11,6 +11,12 @@ using System;
 using System.Windows.Forms;
 
 namespace Assign6 {
+    /*  
+    *  Class:       Portal
+    *  
+    *  Purpose:     Main form (homepage) of the application that holds buttons to go to
+    *               other forms (graphs).
+    */
     public partial class Portal : Form {
         public Portal() {
             InitializeComponent();
