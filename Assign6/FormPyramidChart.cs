@@ -6,6 +6,11 @@ using System.Windows.Forms;
 using System.Windows.Forms.DataVisualization.Charting;
 
 namespace Assign6 {
+    /*  
+    *  Class:       FormPyramidChart
+    *  
+    *  Purpose:     Pyramid chart displaying the largest pyramid schemes.
+    */
     public partial class FormPyramidChart : Form {
         string dataLine;            // Single line of data from file.
         string[] dataLineTokens;    // Holds pyramid scheme name and amount of money swindled (millions USD).
